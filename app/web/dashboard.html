@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMGPUB Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.container{
+padding:30px;
+}
+
+.section{
+margin-bottom:40px;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+.stat{
+background:#12131F;
+padding:20px;
+border:1px solid #333;
+border-radius:10px;
+text-align:center;
+}
+
+.stat h3{
+font-size:28px;
+color:#37d0ff;
+}
+
+.table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+.table th, .table td{
+border-bottom:1px solid #333;
+padding:10px;
+text-align:left;
+}
+
+button{
+margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>SMGPUB Dashboard</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="marketplace.html">Marketplace</a>
+<a href="login.html">Logout</a>
+</nav>
+</header>
+
+<div class="container">
+
+<!-- STATS -->
+<div class="section grid">
+
+<div class="stat">
+<h3 id="totalRevenue">$0</h3>
+<p>Total Revenue</p>
+</div>
+
+<div class="stat">
+<h3 id="totalSales">0</h3>
+<p>Total Sales</p>
+</div>
+
+<div class="stat">
+<h3 id="totalTracks">0</h3>
+<p>Tracks</p>
+</div>
+
+</div>
+
+<!-- PURCHASES -->
+<div class="section">
+<h2>Purchases</h2>
+
+<table class="table">
+<thead>
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody id="purchases"></tbody>
+</table>
+
+</div>
+
+<!-- ROYALTIES -->
+<div class="section">
+<h2>Royalty Earnings</h2>
+
+<table class="table">
+<thead>
+<tr>
+<th>Track</th>
+<th>Earnings</th>
+</tr>
+</thead>
+<tbody id="royalties"></tbody>
+</table>
+
+</div>
+
+<!-- LICENSES -->
+<div class="section">
+<h2>Licenses</h2>
+
+<table class="table">
+<thead>
+<tr>
+<th>Track</th>
+<th>Type</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody id="licenses"></tbody>
+</table>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+
+// LOAD DASHBOARD DATA
+async function loadDashboard(){
+
+// MOCK / replace with API
+const purchases = await get("/products");
+const royalties = [
+{track:"Night Shift", amount:120},
+{track:"Blue Hour", amount:80}
+];
+
+// UPDATE STATS
+document.getElementById("totalRevenue").innerText =
+"$" + royalties.reduce((a,b)=>a+b.amount,0);
+
+document.getElementById("totalSales").innerText =
+purchases.length;
+
+document.getElementById("totalTracks").innerText =
+royalties.length;
+
+// PURCHASES TABLE
+document.getElementById("purchases").innerHTML =
+purchases.map(p=>`
+<tr>
+<td>${p.id}</td>
+<td>$${p.price}</td>
+<td><a href="download.html">Download</a></td>
+</tr>
+`).join('');
+
+// ROYALTIES TABLE
+document.getElementById("royalties").innerHTML =
+royalties.map(r=>`
+<tr>
+<td>${r.track}</td>
+<td>$${r.amount}</td>
+</tr>
+`).join('');
+
+// LICENSE TABLE
+document.getElementById("licenses").innerHTML =
+royalties.map(r=>`
+<tr>
+<td>${r.track}</td>
+<td>Standard</td>
+<td><a href="license.html">View</a></td>
+</tr>
+`).join('');
+}
+
+loadDashboard();
+
+</script>
+
+</body>
+</html>

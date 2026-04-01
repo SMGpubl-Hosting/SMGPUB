@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | SMGPUB</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:#12131F;
+padding:30px;
+border:1px solid #333;
+border-radius:10px;
+width:300px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+background:#0b0c14;
+border:1px solid #333;
+color:white;
+}
+
+button{
+width:100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="box">
+<h2>Login</h2>
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p style="margin-top:10px">
+Don't have an account? <a href="signup.html">Sign up</a>
+</p>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
