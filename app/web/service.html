@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMGPUB Services</title>
+
+<style>
+body{margin:0;background:#0a0a0f;color:#fff;font-family:sans-serif}
+
+/* HEADER */
+header{
+  padding:20px;
+  text-align:center;
+  background:#12121a;
+}
+
+.logo{color:#d4af37;font-weight:bold;font-size:22px}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:#12121a;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  border:1px solid #222;
+}
+
+.card h3{color:#d4af37}
+
+.price{
+  font-size:20px;
+  margin:10px 0;
+}
+
+/* BUTTON */
+.btn{
+  background:#d4af37;
+  color:#000;
+  padding:12px;
+  border:none;
+  width:100%;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+/* FEATURES */
+.features{
+  text-align:left;
+  margin-top:10px;
+  color:#ccc;
+}
+
+.features p{margin:5px 0}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin:40px 20px;
+}
+
+.cta button{
+  padding:15px 30px;
+  background:#d4af37;
+  border:none;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SMGPUB Services</div>
+  <p>Professional Music Publishing & Creator Services</p>
+</header>
+
+<!-- SERVICES -->
+<div class="grid">
+
+  <!-- PUBLISHING -->
+  <div class="card">
+    <h3>Publishing Administration</h3>
+    <div class="price">$150+</div>
+
+    <div class="features">
+      <p>✔ Song Registration (ASCAP/BMI)</p>
+      <p>✔ Royalty Collection</p>
+      <p>✔ Rights Management</p>
+    </div>
+
+    <button class="btn" onclick="order('publishing')">
+      Get Started
+    </button>
+  </div>
+
+  <!-- LICENSING -->
+  <div class="card">
+    <h3>Beat Licensing</h3>
+    <div class="price">$29+</div>
+
+    <div class="features">
+      <p>✔ Instant Licensing</p>
+      <p>✔ Commercial Rights</p>
+      <p>✔ PDF License Included</p>
+    </div>
+
+    <button class="btn" onclick="order('licensing')">
+      License Beat
+    </button>
+  </div>
+
+  <!-- MARKETING -->
+  <div class="card">
+    <h3>Marketing & Promotion</h3>
+    <div class="price">$50 - $300</div>
+
+    <div class="features">
+      <p>✔ Playlist Placement</p>
+      <p>✔ Social Promotion</p>
+      <p>✔ Campaign Strategy</p>
+    </div>
+
+    <button class="btn" onclick="order('marketing')">
+      Boost My Music
+    </button>
+  </div>
+
+  <!-- SYNC -->
+  <div class="card">
+    <h3>Sync Licensing</h3>
+    <div class="price">$500+</div>
+
+    <div class="features">
+      <p>✔ Film & TV Placement</p>
+      <p>✔ Brand Licensing</p>
+      <p>✔ Contract Negotiation</p>
+    </div>
+
+    <button class="btn" onclick="order('sync')">
+      Submit for Sync
+    </button>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Need a Custom Service?</h2>
+  <p>Contact SMGPUB for tailored solutions</p>
+  <button onclick="contact()">Contact Us</button>
+</div>
+
+<script>
+
+function order(type){
+  location.href = "service.html?type=" + type;
+}
+
+function contact(){
+  alert("Connect contact form or email here");
+}
+
+</script>
+
+</body>
+</html>
