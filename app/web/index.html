@@ -1,212 +1,212 @@
-<!-- SMGPUB FINAL COMBINED INDEX -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMGPUB℠ | Takeoff Type Beats & Pro Presets</title>
+    <style>
+        :root {
+            --bg: #050508; /* Deep Trap Black */
+            --panel: #0f0f1e;
+            --primary: #8a2be2; /* Electric Purple */
+            --accent: #ffd700; /* Gold */
+            --text: #ffffff;
+            --muted: #6b7c93;
+            --stroke: #1f1f35;
+            --radius: 8px;
+        }
 
-<title>SMGPUB℠ | Publishing • Licensing • Marketplace</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-:root {
---bg:#0b0b12;
---panel:#151525;
---primary:#37d0ff;
---accent:#c24bff;
---text:#ffffff;
---muted:#9fb3c8;
---stroke:#24243a;
---radius:14px;
-}
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--stroke);
+            background: rgba(15, 15, 30, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-body{
-font-family:Arial;
-background:var(--bg);
-color:var(--text);
-}
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
 
-/* HEADER */
-header{
-display:flex;
-justify-content:space-between;
-padding:20px;
-border-bottom:1px solid var(--stroke);
-}
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
 
-.logo{
-font-size:24px;
-font-weight:900;
-color:var(--primary);
-}
+        nav a:hover { color: var(--accent); }
 
-/* BUTTON */
-.btn{
-background:linear-gradient(90deg,var(--primary),var(--accent));
-border:none;
-padding:12px 20px;
-cursor:pointer;
-margin:5px;
-font-weight:bold;
-}
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: radial-gradient(circle at center, #1a0b2e 0%, var(--bg) 70%);
+        }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:40px;
-}
+        .hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .hero p { color: var(--muted); margin-bottom: 30px; font-size: 18px; }
 
-/* CARD */
-.card{
-background:var(--panel);
-padding:20px;
-border:1px solid var(--stroke);
-border-radius:var(--radius);
-}
+        .btn {
+            background: linear-gradient(135deg, var(--primary), #4b0082);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-/* HERO */
-.hero{
-text-align:center;
-padding:100px 20px;
-}
-</style>
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--stroke);
+            margin-left: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 60px 40px;
+        }
+
+        .card {
+            background: var(--panel);
+            padding: 25px;
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius);
+            transition: border 0.3s;
+        }
+
+        .card:hover { border-color: var(--primary); }
+
+        .tag {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .market-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .market-link:hover { color: var(--text); }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid var(--stroke);
+            color: var(--muted);
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">SMGPUB℠</div>
-<nav>
-<a href="#store">Store</a>
-<a href="#services">Services</a>
-<a href="#publishing">Publishing</a>
-<a href="#dashboard">Dashboard</a>
-</nav>
+    <div class="logo">SMGPUB℠</div>
+    <nav>
+        <a href="#store">Beats</a>
+        <a href="#presets">Presets</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-<h1>Music Publishing <span style="color:var(--primary)">Done Right</span></h1>
-<p>Sell beats, license music, and manage royalties in one system.</p>
-
-<button class="btn" onclick="loadProducts()">Browse Store</button>
-<button class="btn" onclick="loadServices()">View Services</button>
+    <h1>Atlanta Sound <span style="color:var(--primary)">Unlocked</span></h1>
+    <p>Premium Takeoff-type instrumentals and professional iPhone mixing presets.</p>
+    <button class="btn" onclick="document.getElementById('store').scrollIntoView()">Browse Beats</button>
+    <button class="btn btn-outline" onclick="location.href='dashboard.html'">Producer Login</button>
 </section>
 
-<!-- STORE -->
 <section id="store">
-<h2 style="text-align:center">Marketplace</h2>
-<div id="products" class="grid"></div>
-</section>
-  <h1>SMGPUB</h1>
-<p>Music Publishing • Drum Kits • Licensing</p>
-
-<a href="/marketplace.html">Enter Marketplace</a>
-
-<!-- SERVICES -->
-<section id="services">
-<h2 style="text-align:center">Services</h2>
-<div id="servicesList" class="grid"></div>
+    <h2 style="text-align:center; padding-top:40px;">Marketplace</h2>
+    <div id="products" class="grid">
+        </div>
 </section>
 
-<!-- PUBLISHING -->
-<section id="publishing">
-<h2 style="text-align:center">Publishing Admin</h2>
-<div class="grid">
-<div class="card">Global Royalties</div>
-<div class="card">Rights Management</div>
-<div class="card">Sync Licensing</div>
-</div>
-</section>
-
-<!-- BEATS -->
-<section>
-<h2 style="text-align:center">Featured Beats</h2>
-<div class="grid">
-<div class="card">
-<h3>Night Shift</h3>
-<button class="btn" onclick="buy('night-shift')">Buy - $49.99</button>
-</div>
-<div class="card">
-<h3>Blue Hour</h3>
-<button class="btn" onclick="buy('blue-hour')">Buy - $39.99</button>
-</div>
-</div>
-</section>
-
-<!-- DASHBOARD -->
-<section id="dashboard">
-<h2 style="text-align:center">Dashboard</h2>
-<div class="grid">
-<div class="card">Catalog</div>
-<div class="card">Royalties</div>
-<div class="card">Licenses</div>
-</div>
-</section>
-
-<footer style="text-align:center;padding:40px;color:var(--muted)">
-© 2026 SMGPUB℠ — Raymond Summers
+<footer>
+    <p>© 2026 SMGPUB℠ — Raymond Summers</p>
+    <p style="margin-top:10px;">Designed for FL Studio Mobile & Cubasis 3</p>
 </footer>
 
 <script>
-
 const API = "/api";
 
-/* PRODUCTS */
-async function loadProducts(){
-const res = await fetch(API + "/products");
-const data = await res.json();
-
-document.getElementById("products").innerHTML =
-data.map(p=>`
-<div class="card">
-<h3>${p.id}</h3>
-<p>$${p.price}</p>
-<button class="btn" onclick="buy('${p.id}')">Buy</button>
-</div>
-`).join('');
+async function loadProducts() {
+    try {
+        const res = await fetch(API + "/products");
+        const data = await res.json();
+        
+        document.getElementById("products").innerHTML = data.map(p => `
+            <div class="card">
+                <span class="tag">${p.type === 'preset' ? 'Logic & Mixing' : 'Trap Instrumental'}</span>
+                <h3>${p.id}</h3>
+                <p style="font-size: 20px; margin: 10px 0; color: var(--accent);">$${p.price}</p>
+                <button class="btn" style="width:100%" onclick="buy('${p.id}')">
+                    ${p.type === 'preset' ? 'Download Preset' : 'Instant Lease'}
+                </button>
+                <a href="https://www.beatstars.com/smgpub" target="_blank" class="market-link">
+                    View on BeatStars Marketplace
+                </a>
+            </div>
+        `).join('');
+    } catch (err) {
+        console.error("Store Load Error:", err);
+    }
 }
 
-/* SERVICES */
-async function loadServices(){
-const res = await fetch(API + "/services");
-const data = await res.json();
-
-document.getElementById("servicesList").innerHTML =
-data.map(s=>`
-<div class="card">
-<h3>${s.name}</h3>
-<p>$${s.price}</p>
-<button class="btn" onclick="subscribe('${s.name}')">Subscribe</button>
-</div>
-`).join('');
+async function buy(id) {
+    const res = await fetch(API + "/stripe/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            productId: id,
+            // Include source for tracking
+            source: "smgpub_direct" 
+        })
+    });
+    const data = await res.json();
+    if(data.url) window.location.href = data.url;
 }
 
-/* BUY */
-async function buy(id){
-const res = await fetch(API + "/stripe/create-checkout",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({productId:id})
-});
-const data = await res.json();
-window.location.href = data.url;
-}
-
-/* SUBSCRIBE */
-async function subscribe(plan){
-const res = await fetch(API + "/stripe/subscribe",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({plan})
-});
-const data = await res.json();
-window.location.href = data.url;
-}
-
+// Initial Load
+loadProducts();
 </script>
 
 </body>
