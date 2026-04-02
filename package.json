@@ -1,32 +1,30 @@
 {
   "name": "smgpub-enterprise",
-  "version": "1.0.0",
+  "displayName": "SMGPUB℠ Enterprise",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "node backend/server.js",
-    "start": "node backend/server.js"{
-  "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck"
-  }
-}
-
- {
   "bin": {
     "smg": "./smg.js"
-  }
-}
- },
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "start": "node backend/server.js",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "server": "node backend/server.js"
+  },
   "dependencies": {
-    "express": "^4.19.2",
-    "mongoose": "^8.0.0",
+    "express": "^4.21.0",
+    "mongoose": "^8.9.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.7",
     "jsonwebtoken": "^9.0.2",
     "bcryptjs": "^2.4.3",
-    "stripe": "^14.0.0"
+    "stripe": "^17.0.0"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
   }
 }
