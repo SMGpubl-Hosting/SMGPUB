@@ -1,0 +1,2 @@
+npm run dev -- --filter=web
+npm run dev -- --filter=admin
