@@ -1,4 +1,3 @@
-<!-- SMGPUB FINAL COMBINED INDEX -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +38,18 @@ border-bottom:1px solid var(--stroke);
 font-size:24px;
 font-weight:900;
 color:var(--primary);
+text-decoration: none;
+}
+
+nav a {
+color: var(--muted);
+text-decoration: none;
+margin-left: 20px;
+transition: color 0.3s;
+}
+
+nav a:hover {
+color: var(--primary);
 }
 
 /* BUTTON */
@@ -49,6 +60,8 @@ padding:12px 20px;
 cursor:pointer;
 margin:5px;
 font-weight:bold;
+color: white;
+border-radius: 8px;
 }
 
 /* GRID */
@@ -65,6 +78,12 @@ background:var(--panel);
 padding:20px;
 border:1px solid var(--stroke);
 border-radius:var(--radius);
+transition: transform 0.2s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+border-color: var(--primary);
 }
 
 /* HERO */
@@ -78,64 +97,66 @@ padding:100px 20px;
 <body>
 
 <header>
-<div class="logo">SMGPUB℠</div>
+<a href="index.html" class="logo">SMGPUB℠</a>
 <nav>
 <a href="#store">Store</a>
-<a href="#services">Services</a>
-<a href="#publishing">Publishing</a>
+<a href="publishing-admin.html">Publishing</a>
+<a href="distribution.html">Distribution</a>
 <a href="#dashboard">Dashboard</a>
 </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <h1>Music Publishing <span style="color:var(--primary)">Done Right</span></h1>
 <p>Sell beats, license music, and manage royalties in one system.</p>
 
 <button class="btn" onclick="loadProducts()">Browse Store</button>
-<button class="btn" onclick="loadServices()">View Services</button>
+<button class="btn" onclick="location.href='publishing-admin.html'">View Services</button>
 </section>
 
-<!-- STORE -->
 <section id="store">
 <h2 style="text-align:center">Marketplace</h2>
 <div id="products" class="grid"></div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
-<h2 style="text-align:center">Services</h2>
-<div id="servicesList" class="grid"></div>
+<h2 style="text-align:center">Professional Services</h2>
+<div class="grid">
+    <div class="card" onclick="location.href='artist-development.html'" style="cursor:pointer">
+        <h3>Artist Development</h3>
+        <p>Build your brand and career.</p>
+    </div>
+    <div class="card" onclick="location.href='marketing-promotion.html'" style="cursor:pointer">
+        <h3>Marketing & Promotion</h3>
+        <p>Get your music heard.</p>
+    </div>
+    <div class="card" onclick="location.href='beat-licensing.html'" style="cursor:pointer">
+        <h3>Beat Licensing</h3>
+        <p>Legal frameworks for producers.</p>
+    </div>
+</div>
 </section>
 
-<!-- PUBLISHING -->
 <section id="publishing">
 <h2 style="text-align:center">Publishing Admin</h2>
 <div class="grid">
-<div class="card">Global Royalties</div>
-<div class="card">Rights Management</div>
-<div class="card">Sync Licensing</div>
+<div class="card" onclick="location.href='royalty-collection.html'" style="cursor:pointer">
+    <h3>Global Royalties</h3>
+    <p>Collect performance and mechanicals.</p>
 </div>
-</section>
-
-<!-- BEATS -->
-<section>
-<h2 style="text-align:center">Featured Beats</h2>
-<div class="grid">
-<div class="card">
-<h3>Night Shift</h3>
-<button class="btn" onclick="buy('night-shift')">Buy - $49.99</button>
+<div class="card" onclick="location.href='copyright-registration.html'" style="cursor:pointer">
+    <h3>Rights Management</h3>
+    <p>Secure your intellectual property.</p>
 </div>
-<div class="card">
-<h3>Blue Hour</h3>
-<button class="btn" onclick="buy('blue-hour')">Buy - $39.99</button>
+<div class="card" onclick="location.href='sync-licensing.html'" style="cursor:pointer">
+    <h3>Sync Licensing</h3>
+    <p>Music for Film, TV, and Games.</p>
 </div>
 </div>
 </section>
 
-<!-- DASHBOARD -->
 <section id="dashboard">
-<h2 style="text-align:center">Dashboard</h2>
+<h2 style="text-align:center">User Dashboard</h2>
 <div class="grid">
 <div class="card">Catalog</div>
 <div class="card">Royalties</div>
@@ -148,61 +169,36 @@ padding:100px 20px;
 </footer>
 
 <script>
-
-const API = "/api";
-
-/* PRODUCTS */
+/* UPDATED PRODUCT LOADER FOR PRODUCTS.JSON */
 async function loadProducts(){
-const res = await fetch(API + "/products");
-const data = await res.json();
-
-document.getElementById("products").innerHTML =
-data.map(p=>`
-<div class="card">
-<h3>${p.id}</h3>
-<p>$${p.price}</p>
-<button class="btn" onclick="buy('${p.id}')">Buy</button>
-</div>
-`).join('');
+    const container = document.getElementById("products");
+    try {
+        const res = await fetch("products.json"); 
+        const data = await res.json();
+        
+        // Map data from the 'products' array in products.json
+        container.innerHTML = data.products.map(p => `
+            <div class="card">
+                <img src="${p.image}" style="width:100%; border-radius:8px; margin-bottom:10px;" alt="${p.name}">
+                <h3>${p.name}</h3>
+                <p style="color:var(--muted); font-size:0.9em; margin-bottom:10px;">${p.description}</p>
+                <p><strong>${p.free ? 'FREE' : '$49.99'}</strong></p>
+                <button class="btn" style="width:100%; margin-top:10px;" onclick="buy('${p.id}')">Buy License</button>
+                <audio controls src="${p.demo}" style="width:100%; margin-top:10px; height:30px;"></audio>
+            </div>
+        `).join('');
+    } catch (e) {
+        container.innerHTML = "<p>Error loading marketplace items.</p>";
+    }
 }
 
-/* SERVICES */
-async function loadServices(){
-const res = await fetch(API + "/services");
-const data = await res.json();
-
-document.getElementById("servicesList").innerHTML =
-data.map(s=>`
-<div class="card">
-<h3>${s.name}</h3>
-<p>$${s.price}</p>
-<button class="btn" onclick="subscribe('${s.name}')">Subscribe</button>
-</div>
-`).join('');
-}
-
-/* BUY */
+/* STRIPE CHECKOUT STUB */
 async function buy(id){
-const res = await fetch(API + "/stripe/create-checkout",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({productId:id})
-});
-const data = await res.json();
-window.location.href = data.url;
+    alert("Proceeding to secure checkout for: " + id);
 }
 
-/* SUBSCRIBE */
-async function subscribe(plan){
-const res = await fetch(API + "/stripe/subscribe",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({plan})
-});
-const data = await res.json();
-window.location.href = data.url;
-}
-
+// Initialize store on load
+window.onload = loadProducts;
 </script>
 
 </body>
