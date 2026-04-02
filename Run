@@ -1,2 +1,8 @@
 npm run dev -- --filter=web
 npm run dev -- --filter=admin
+npm run dev -- --filter=auth
+npm run dev -- --filter=billing
+npm run dev -- --filter=content
+npm run dev -- --filter=licensing
+npm run dev -- --filter=automotive
+npm run dev -- --filter=ai
