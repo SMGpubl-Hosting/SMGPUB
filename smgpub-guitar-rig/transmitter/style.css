@@ -1,0 +1,43 @@
+body{
+  margin:0;
+  background:#0B0C14;
+  color:#EAEFFF;
+  font-family:Arial, sans-serif;
+  text-align:center;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{
+  color:#3CD1FF;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  background:#3CD1FF;
+  border:none;
+  border-radius:8px;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 10px #3CD1FF;
+}
+
+.controls{
+  margin-top:30px;
+  text-align:left;
+}
+
+label{
+  display:block;
+  margin-top:15px;
+}
+
+input[type="range"]{
+  width:100%;
+}

@@ -3,62 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMGPUB™ Guitar Rig</title>
-
+<title>SMGPUB™ Guitar Transmitter</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="../ui/knobs.css">
-
 </head>
 
 <body>
 
-<div class="amp">
+<div class="container">
+  <h1>🎸 SMGPUB™ Guitar Rig</h1>
 
-  <h1>🎸 SMGPUB™ AMP</h1>
-
-  <button onclick="start()">POWER</button>
-  <button onclick="startRecordingUI()">REC</button>
-  <button onclick="stopRecordingUI()">STOP</button>
-
+  <button id="startBtn">Start Streaming</button>
   <p id="status">Status: Idle</p>
 
-  <div class="panel">
+  <div class="controls">
+    <label>Gain</label>
+    <input type="range" id="gain" min="0" max="5" step="0.1" value="2">
 
-    <div class="knob-block">
-      <input type="range" id="gain" min="0" max="5" step="0.1" value="2">
-      <div class="knob"></div>
-      <p>GAIN</p>
-    </div>
-
-    <div class="knob-block">
-      <input type="range" id="bass" min="-10" max="10" value="5">
-      <div class="knob"></div>
-      <p>BASS</p>
-    </div>
-
-    <div class="knob-block">
-      <input type="range" id="mid" min="-10" max="10" value="0">
-      <div class="knob"></div>
-      <p>MID</p>
-    </div>
-
-    <div class="knob-block">
-      <input type="range" id="treble" min="-10" max="10" value="5">
-      <div class="knob"></div>
-      <p>TREBLE</p>
-    </div>
-
+    <label>Distortion</label>
+    <input type="range" id="dist" min="0" max="500" value="200">
   </div>
-
-  <div class="presets">
-    <button onclick="loadPreset('clean')">Clean</button>
-    <button onclick="loadPreset('crunch')">Crunch</button>
-    <button onclick="loadPreset('lead')">Lead</button>
-    <button onclick="loadPreset('ambient')">Ambient</button>
-  </div>
-
 </div>
 
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
