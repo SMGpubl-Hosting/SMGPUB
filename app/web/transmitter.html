@@ -1,47 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMGPUB Guitar TX PRO</title>
+<title>SMGPUB™ Guitar Transmitter</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h2>🎸 Guitar Transmitter PRO</h2>
-<button onclick="start()">Start</button>
+<div class="container">
+  <h1>🎸 SMGPUB™ Guitar Rig</h1>
 
-<script>
-let socket;
+  <button id="startBtn">Start Streaming</button>
+  <p id="status">Status: Idle</p>
 
-async function start(){
+  <div class="controls">
+    <label>Gain</label>
+    <input type="range" id="gain" min="0" max="5" step="0.1" value="2">
 
-  // Connect WebSocket
-  socket = new WebSocket("ws://YOUR_SERVER_IP:3000");
+    <label>Distortion</label>
+    <input type="range" id="dist" min="0" max="500" value="200">
+  </div>
+</div>
 
-  const stream = await navigator.mediaDevices.getUserMedia({
-    audio: {
-      echoCancellation: false,
-      noiseSuppression: false,
-      autoGainControl: false
-    }
-  });
-
-  const audioContext = new AudioContext({ latencyHint: "interactive" });
-
-  await audioContext.audioWorklet.addModule('processor.js');
-
-  const source = audioContext.createMediaStreamSource(stream);
-
-  const worklet = new AudioWorkletNode(audioContext, 'audio-processor');
-
-  worklet.port.onmessage = (event) => {
-    socket.send(event.data);
-  };
-
-  source.connect(worklet);
-  worklet.connect(audioContext.destination);
-}
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
