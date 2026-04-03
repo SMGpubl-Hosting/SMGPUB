@@ -1,0 +1,23 @@
+ const gain = audioContext.createGain();
+gain.gain.value = 2.5;
+
+const distortion = audioContext.createWaveShaper();
+
+function makeDistortion(amount) {
+  let n = 44100;
+  let curve = new Float32Array(n);
+
+  for (let i = 0; i < n; i++) {
+    let x = i * 2 / n - 1;
+    curve[i] = (Math.PI + amount) * x / (Math.PI + amount * Math.abs(x));
+  }
+
+  return curve;
+}
+
+distortion.curve = makeDistortion(300);
+
+// Chain
+source.connect(gain);
+gain.connect(distortion);
+distortion.connect(worklet);
