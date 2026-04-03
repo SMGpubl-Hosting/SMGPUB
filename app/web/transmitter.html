@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMGPUB Guitar TX PRO</title>
+</head>
+
+<body>
+
+<h2>🎸 Guitar Transmitter PRO</h2>
+<button onclick="start()">Start</button>
+
+<script>
+let socket;
+
+async function start(){
+
+  // Connect WebSocket
+  socket = new WebSocket("ws://YOUR_SERVER_IP:3000");
+
+  const stream = await navigator.mediaDevices.getUserMedia({
+    audio: {
+      echoCancellation: false,
+      noiseSuppression: false,
+      autoGainControl: false
+    }
+  });
+
+  const audioContext = new AudioContext({ latencyHint: "interactive" });
+
+  await audioContext.audioWorklet.addModule('processor.js');
+
+  const source = audioContext.createMediaStreamSource(stream);
+
+  const worklet = new AudioWorkletNode(audioContext, 'audio-processor');
+
+  worklet.port.onmessage = (event) => {
+    socket.send(event.data);
+  };
+
+  source.connect(worklet);
+  worklet.connect(audioContext.destination);
+}
+</script>
+
+</body>
+</html>
