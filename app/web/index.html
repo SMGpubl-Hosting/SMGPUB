@@ -4,201 +4,275 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SMGPUB℠ | Publishing • Licensing • Marketplace</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/neon-theme.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/animations.css">
+
+<title>SMGPUB℠ | Music Publishing Platform</title>
 
 <style>
-:root {
---bg:#0b0b12;
---panel:#151525;
---primary:#37d0ff;
---accent:#c24bff;
---text:#ffffff;
---muted:#9fb3c8;
---stroke:#24243a;
---radius:14px;
-}
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
+/* GLOBAL */
 body{
-font-family:Arial;
-background:var(--bg);
-color:var(--text);
+  margin:0;
+  font-family:sans-serif;
+  background:#0b0c14;
+  color:#fff;
 }
 
-/* HEADER */
-header{
-display:flex;
-justify-content:space-between;
-padding:20px;
-border-bottom:1px solid var(--stroke);
+section{
+  padding:80px 20px;
+  text-align:center;
 }
 
-.logo{
-font-size:24px;
-font-weight:900;
-color:var(--primary);
-text-decoration: none;
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  background:#12131f;
+  position:sticky;
+  top:0;
 }
 
-nav a {
-color: var(--muted);
-text-decoration: none;
-margin-left: 20px;
-transition: color 0.3s;
+.navbar a{
+  color:#fff;
+  margin:0 10px;
+  text-decoration:none;
 }
 
-nav a:hover {
-color: var(--primary);
-}
-
-/* BUTTON */
-.btn{
-background:linear-gradient(90deg,var(--primary),var(--accent));
-border:none;
-padding:12px 20px;
-cursor:pointer;
-margin:5px;
-font-weight:bold;
-color: white;
-border-radius: 8px;
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:40px;
-}
-
-/* CARD */
-.card{
-background:var(--panel);
-padding:20px;
-border:1px solid var(--stroke);
-border-radius:var(--radius);
-transition: transform 0.2s;
-}
-
-.card:hover {
-transform: translateY(-5px);
-border-color: var(--primary);
+.navbar a:hover{
+  color:#37d0ff;
 }
 
 /* HERO */
 .hero{
-text-align:center;
-padding:100px 20px;
+  background:linear-gradient(135deg,#0b0c14,#1e2333);
+  padding:120px 20px;
 }
+
+.hero h1{
+  font-size:3rem;
+  color:#37d0ff;
+}
+
+.hero p{
+  color:#9fb3c8;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  background:#c24bff;
+  color:#fff;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#37d0ff;
+  color:#000;
+}
+
+/* FEATURES */
+.features{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.feature{
+  background:#12131f;
+  padding:25px;
+  border-radius:12px;
+  width:250px;
+}
+
+.feature:hover{
+  box-shadow:0 0 20px #37d0ff;
+}
+
+/* PLAYER */
+.player audio{
+  width:300px;
+}
+
+/* PRICING */
+.pricing{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.plan{
+  background:#12131f;
+  padding:25px;
+  border-radius:12px;
+  width:260px;
+}
+
+.featured{
+  border:2px solid #37d0ff;
+  transform:scale(1.05);
+}
+
+/* MARKETPLACE */
+.market{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.beat{
+  background:#12131f;
+  padding:15px;
+  border-radius:10px;
+}
+
+/* AI */
+.ai input{
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  width:250px;
+}
+
+.ai button{
+  margin-left:10px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-<a href="index.html" class="logo">SMGPUB℠</a>
-<nav>
-<a href="#store">Store</a>
-<a href="publishing-admin.html">Publishing</a>
-<a href="distribution.html">Distribution</a>
-<a href="#dashboard">Dashboard</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>SMGPUB℠</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
 </nav>
-</header>
 
+<!-- HERO -->
 <section class="hero">
-<h1>Music Publishing <span style="color:var(--primary)">Done Right</span></h1>
-<p>Sell beats, license music, and manage royalties in one system.</p>
-
-<button class="btn" onclick="loadProducts()">Browse Store</button>
-<button class="btn" onclick="location.href='publishing-admin.html'">View Services</button>
+  <h2>🚀 Build Your Music Empire</h1>
+  <p>Publishing • Licensing • Marketplace • AI Tools</p>
+  <button onclick="goCheckout()">Start Now</button>
 </section>
 
-<section id="store">
-<h2 style="text-align:center">Marketplace</h2>
-<div id="products" class="grid"></div>
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <h3>🎵 Beat Monetization</h3>
+    <p>Sell beats instantly with licensing</p>
+  </div>
+
+  <div class="feature">
+    <h3>📄 Licensing Engine</h3>
+    <p>Automated contracts & protection</p>
+  </div>
+
+  <div class="feature">
+    <h3>🤖 AI Tools</h3>
+    <p>Generate ideas, metadata & content</p>
+  </div>
 </section>
 
-<section id="services">
-<h2 style="text-align:center">Professional Services</h2>
-<div class="grid">
-    <div class="card" onclick="location.href='artist-development.html'" style="cursor:pointer">
-        <h3>Artist Development</h3>
-        <p>Build your brand and career.</p>
-    </div>
-    <div class="card" onclick="location.href='marketing-promotion.html'" style="cursor:pointer">
-        <h3>Marketing & Promotion</h3>
-        <p>Get your music heard.</p>
-    </div>
-    <div class="card" onclick="location.href='beat-licensing.html'" style="cursor:pointer">
-        <h3>Beat Licensing</h3>
-        <p>Legal frameworks for producers.</p>
-    </div>
-</div>
+<!-- PLAYER -->
+<section class="player">
+  <h2>🎵 Featured Beat</h2>
+  <audio controls src="../assets/audio/demo.mp3"></audio>
 </section>
 
-<section id="publishing">
-<h2 style="text-align:center">Publishing Admin</h2>
-<div class="grid">
-<div class="card" onclick="location.href='royalty-collection.html'" style="cursor:pointer">
-    <h3>Global Royalties</h3>
-    <p>Collect performance and mechanicals.</p>
-</div>
-<div class="card" onclick="location.href='copyright-registration.html'" style="cursor:pointer">
-    <h3>Rights Management</h3>
-    <p>Secure your intellectual property.</p>
-</div>
-<div class="card" onclick="location.href='sync-licensing.html'" style="cursor:pointer">
-    <h3>Sync Licensing</h3>
-    <p>Music for Film, TV, and Games.</p>
-</div>
-</div>
+<!-- PRICING -->
+<section class="pricing">
+
+  <div class="plan">
+    <h2>Starter</h2>
+    <p>$99</p>
+    <button onclick="buy('starter')">Buy</button>
+  </div>
+
+  <div class="plan featured">
+    <h2>Pro</h2>
+    <p>$249</p>
+    <button onclick="buy('pro')">Buy</button>
+  </div>
+
+  <div class="plan">
+    <h2>Enterprise</h2>
+    <p>$499+</p>
+    <button onclick="buy('enterprise')">Buy</button>
+  </div>
+
 </section>
 
-<section id="dashboard">
-<h2 style="text-align:center">User Dashboard</h2>
-<div class="grid">
-<div class="card">Catalog</div>
-<div class="card">Royalties</div>
-<div class="card">Licenses</div>
-</div>
+<!-- MARKETPLACE PREVIEW -->
+<section class="market">
+
+  <div class="beat">
+    <p>Trap Beat</p>
+    <audio controls src="../assets/audio/demo.mp3"></audio>
+    <button onclick="buy()">Buy</button>
+  </div>
+
+  <div class="beat">
+    <p>Drill Beat</p>
+    <audio controls src="../assets/audio/demo.mp3"></audio>
+    <button onclick="buy()">Buy</button>
+  </div>
+
 </section>
 
-<footer style="text-align:center;padding:40px;color:var(--muted)">
-© 2026 SMGPUB℠ — Raymond Summers
-</footer>
+<!-- AI -->
+<section class="ai">
+  <h2>🤖 AI Assistant</h2>
+
+  <input id="prompt" placeholder="Describe your beat...">
+  <button onclick="generate()">Generate</button>
+
+  <p id="output"></p>
+</section>
+
+<!-- CTA -->
+<section class="hero">
+  <h2>💰 Start Monetizing Today</h2>
+  <button onclick="goCheckout()">Launch Now</button>
+</section>
 
 <script>
-/* UPDATED PRODUCT LOADER FOR PRODUCTS.JSON */
-async function loadProducts(){
-    const container = document.getElementById("products");
-    try {
-        const res = await fetch("products.json"); 
-        const data = await res.json();
-        
-        // Map data from the 'products' array in products.json
-        container.innerHTML = data.products.map(p => `
-            <div class="card">
-                <img src="${p.image}" style="width:100%; border-radius:8px; margin-bottom:10px;" alt="${p.name}">
-                <h3>${p.name}</h3>
-                <p style="color:var(--muted); font-size:0.9em; margin-bottom:10px;">${p.description}</p>
-                <p><strong>${p.free ? 'FREE' : '$49.99'}</strong></p>
-                <button class="btn" style="width:100%; margin-top:10px;" onclick="buy('${p.id}')">Buy License</button>
-                <audio controls src="${p.demo}" style="width:100%; margin-top:10px; height:30px;"></audio>
-            </div>
-        `).join('');
-    } catch (e) {
-        container.innerHTML = "<p>Error loading marketplace items.</p>";
-    }
+
+/* NAV FLOW */
+function goCheckout(){
+  window.location.href="checkout.html";
 }
 
-/* STRIPE CHECKOUT STUB */
-async function buy(id){
-    alert("Proceeding to secure checkout for: " + id);
+/* BUY */
+function buy(plan){
+  window.location.href="checkout.html";
 }
 
-// Initialize store on load
-window.onload = loadProducts;
+/* AI */
+function generate(){
+  let input = document.getElementById("prompt").value;
+
+  document.getElementById("output").innerText =
+  "🔥 AI Suggestion: Dark trap beat with heavy 808s (" + input + ")";
+}
+
 </script>
 
 </body>
