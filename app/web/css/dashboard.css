@@ -1,0 +1,19 @@
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card{
+  width:200px;
+  text-align:center;
+  background:#12131f;
+  padding:20px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover{
+  box-shadow:0 0 20px #37d0ff;
+}

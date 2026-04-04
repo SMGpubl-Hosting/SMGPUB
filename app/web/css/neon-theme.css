@@ -1,0 +1,57 @@
+:root{
+  --primary:#37d0ff;
+  --accent:#c24bff;
+  --accent2:#00ffa8;
+  --panel:#12131f;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0b0c14,#1e2333);
+}
+
+.hero h1{
+  color:var(--primary);
+  font-size:3rem;
+}
+
+/* CARDS */
+.feature, .plan, .beat, .card{
+  background:var(--panel);
+  border-radius:12px;
+  padding:20px;
+  transition:0.3s;
+}
+
+/* HOVER EFFECT */
+.feature:hover,
+.plan:hover,
+.beat:hover,
+.card:hover{
+  box-shadow:0 0 25px var(--primary);
+  transform:translateY(-5px);
+}
+
+/* GRID SYSTEM */
+.features, .pricing, .market{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+/* PRICING */
+.plan{
+  width:260px;
+}
+
+.featured{
+  border:2px solid var(--primary);
+  transform:scale(1.05);
+}
+
+/* AUDIO */
+audio{
+  width:100%;
+  margin-top:10px;
+}
